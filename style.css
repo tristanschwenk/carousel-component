@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+}
+
+.slider-wrapper {
+  overflow: scroll;
+  margin: auto;
+  height: 100vh;
+}
+.slider-wrapper .slider {
+  width: auto;
+}
+.slider-wrapper .slider .slide {
+  display: inline-block;
+  width: 100vw;
+}/*# sourceMappingURL=style.css.map */
