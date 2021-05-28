@@ -6,18 +6,88 @@
 
 body {
     width: 100vw;
+    height: 100vh;
 }
 
 .slider-wrapper {
-    overflow: scroll;
+    overflow: hidden;
+    width: 90%;
     margin: auto;
-    height: 100vh;
+
     .slider {
-        width: auto;
+        transform-style: preserve-3d;
+        height: 100vh;
+
         .slide {
-            display: inline-block;
-            width: 100vw;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            margin: auto;
+            padding: 1rem 4rem;
+            z-index: 100;
+            transition: transform .5s, opacity .5s, z-index .5s;
+
+            .next,
+            .prev {
+                z-index: 800;
+            }
+
+            .next {
+                transform: translateX(100%);
+            }
+
+            .prev {
+                transform: translateX(-100%);
+            }
         }
+
+        .active,
+        .initial {
+            opacity: 1;
+            position: relative;
+            z-index: 900;
+        }
+
+        .slider-button-next,
+        .slider-button-prev {
+            position: absolute;
+            top: 50%;
+            width: 3rem;
+            height: 3rem;
+            background-color: #FFF;
+            transform: translateY(-50%);
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1001;
+            /* Sit on top of everything */
+            border: 1px solid black;
+
+            &::after {
+                content: " ";
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                top: 50%;
+                left: 54%;
+                border-right: 2px solid black;
+                border-bottom: 2px solid black;
+                transform: translate(-50%, -50%) rotate(135deg);
+            }
+        }
+
+        .slider-button-prev {
+            left: 0;
+        }
+
+        .slider-button-next {
+            right: 0;
+
+            &::after {
+                left: 47%;
+                transform: translate(-50%, -50%) rotate(-45deg);
+            }
+        }
+
     }
 }
-
