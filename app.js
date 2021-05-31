@@ -7,18 +7,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let slide = 0
     let moving = true;
 
-    let buttons = document.querySelectorAll('button')
+    let buttons = document.querySelectorAll('.slider-index')
 
     buttons.forEach(el => {
         el.addEventListener('click', ()=> {
-            console.log("hello");
+            console.log(el.dataset.sliderIndex);
+            moveCarouselTo(el.dataset.sliderIndex-1)
         })
         console.log(el.dataset.sliderIndex);
     })
 
-    buttons[1].addEventListener('click', () => {
-        console.log("hello");
-    })
 
     initCarousel();
 
